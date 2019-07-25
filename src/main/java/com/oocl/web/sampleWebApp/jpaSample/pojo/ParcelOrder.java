@@ -23,6 +23,21 @@ import java.util.Date;
 @NoArgsConstructor
 public class ParcelOrder {
 
+    public ParcelOrder(String recipient, String tell, String state, Date appointTime) {
+        this.recipient = recipient;
+        this.tell = tell;
+        this.state = state;
+        this.appointTime = appointTime;
+    }
+
+    public ParcelOrder(Long orderId, String recipient, String tell, String state, Date appointTime) {
+        this.orderId = orderId;
+        this.recipient = recipient;
+        this.tell = tell;
+        this.state = state;
+        this.appointTime = appointTime;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
