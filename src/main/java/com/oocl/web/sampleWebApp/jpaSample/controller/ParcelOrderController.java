@@ -24,6 +24,44 @@ import java.util.List;
 public class ParcelOrderController {
 
 
+    @Autowired
+    private ParcelOrderlRepository parcelOrderlRepository;
 
+
+    @GetMapping
+    public List<ParcelOrder> getParcelOrders(){
+
+        return parcelOrderlRepository.findAll();
+
+    }
+
+
+    @PostMapping
+    public String addParcelOrder(@RequestBody ParcelOrder parcelOrder){
+
+        ParcelOrder result = parcelOrderlRepository.save(parcelOrder);
+
+        if(result.getId() != 0){
+            return "Success";
+        }
+        else {
+            return "Fail";
+        }
+    }
+
+
+    @PutMapping
+    public String updateParcelOrder(@RequestBody ParcelOrder parcelOrder){
+
+        ParcelOrder result = parcelOrderlRepository.save(parcelOrder);
+
+        if(result.getId() != null){
+            return "Success";
+        }
+        else {
+            return "Fail";
+        }
+
+    }
 
 }
